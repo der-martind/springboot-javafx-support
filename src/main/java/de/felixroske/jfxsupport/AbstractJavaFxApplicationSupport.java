@@ -1,9 +1,11 @@
 package de.felixroske.jfxsupport;
 
+import com.sun.javafx.application.LauncherImpl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import javafx.application.Application;
+import javafx.application.Preloader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -57,9 +59,10 @@ public abstract class AbstractJavaFxApplicationSupport extends Application {
 	}
 
 	protected static void launchApp(Class<? extends AbstractJavaFxApplicationSupport> appClass,
-			Class<? extends AbstractFxmlView> view, String[] args) {
+			Class<? extends AbstractFxmlView> view, final Class<? extends Preloader> preloaderClass, String[] args) {
 		savedInitialView = view;
 		savedArgs = args;
-		Application.launch(appClass, args);
+//		Application.launch(appClass, args);
+                LauncherImpl.launchApplication(appClass, preloaderClass, args);
 	}
 }
