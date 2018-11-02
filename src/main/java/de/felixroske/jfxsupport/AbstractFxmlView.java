@@ -407,5 +407,9 @@ public abstract class AbstractFxmlView implements ApplicationContextAware {
 		return "AbstractFxmlView [presenterProperty=" + presenterProperty + ", bundle=" + bundle + ", resource="
 				+ resource + ", fxmlRoot=" + fxmlRoot + "]";
 	}
+        
+        public void setTitle(String title){
+            
+        }
 
 }
